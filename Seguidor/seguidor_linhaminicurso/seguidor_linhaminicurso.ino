@@ -1,5 +1,33 @@
+
+// Valores de ajustes para o seguidor de linha MIF
+
+
+
+#define TRESHOLD 700                       // Valor de referencia para cor da linha branca
+#define SPEED0 100                        // Valor de 0 a 255 para velocidade com a seguinte leitura do sensor (0 0 1 1 0 0) 
+#define SPEED1 210*0.3                         // Valor de 0 a 255 para velocidade com a seguinte leitura do sensor (0 0 1 1 1 0) 
+
+#define SPEED2 180*0.3                          // Valor de 0 a 255 para velocidade com a seguinte leitura do sensor (0 0 0 1 0 0) 
+#define SPEED3 150*0.3                         // Valor de 0 a 255 para velocidade com a seguinte leitura do sensor (0 0 0 1 1 0)  
+#define SPEED4 100*0.3                          // Valor de 0 a 255 para velocidade com a seguinte leitura do sensor (0 0 0 1 1 1) 
+
+#define SPEED5 0                            // Valor de 0 a 255 para velocidade com a seguinte leitura do sensor (0 0 0 0 1 0) 
+#define SPEED6 0                            // Valor de 0 a 255 para velocidade com a seguinte leitura do sensor (0 0 0 0 1 1) 
+#define SPEED7 100*0.3                          // Valor de 0 a 255 para velocidade com a seguinte leitura do sensor (0 0 0 0 0 1) 
+
+#define RUNTIME 50000                      // Valor para executar o percurso 
+
+
+
+
+
+
+
+//-----------------------------------------
+
+
 #include <SoftwareSerial.h>
-#include <QTRSensors.h>
+#include "QTRSensors.h"
 
 // Portas Bluetooth
 #define PINBTX 12
@@ -30,22 +58,6 @@ QTRSensorsAnalog qtra((unsigned char[]) {
 },
 NUM_SENSORS, NUM_SAMPLES_PER_SENSOR, EMITTER_PIN);
 unsigned int sensorValues[NUM_SENSORS];
-
-
-// Valores de ajustes para o seguidor de linha MIF
-#define TRESHOLD 700                       // Valor de referencia para cor da linha branca
-#define SPEED0 100                        // Valor de 0 a 255 para velocidade com a seguinte leitura do sensor (0 0 1 1 0 0) 
-#define SPEED1 210*0.3                         // Valor de 0 a 255 para velocidade com a seguinte leitura do sensor (0 0 1 1 1 0) 
-
-#define SPEED2 180*0.3                          // Valor de 0 a 255 para velocidade com a seguinte leitura do sensor (0 0 0 1 0 0) 
-#define SPEED3 150*0.3                         // Valor de 0 a 255 para velocidade com a seguinte leitura do sensor (0 0 0 1 1 0)  
-#define SPEED4 100*0.3                          // Valor de 0 a 255 para velocidade com a seguinte leitura do sensor (0 0 0 1 1 1) 
-
-#define SPEED5 0                            // Valor de 0 a 255 para velocidade com a seguinte leitura do sensor (0 0 0 0 1 0) 
-#define SPEED6 0                            // Valor de 0 a 255 para velocidade com a seguinte leitura do sensor (0 0 0 0 1 1) 
-#define SPEED7 100*0.3                          // Valor de 0 a 255 para velocidade com a seguinte leitura do sensor (0 0 0 0 0 1) 
-
-#define RUNTIME 50000                      // Valor para executar o percurso 
 
 void setup() {
 
@@ -269,4 +281,3 @@ void followLineMEF(void) {
   }
   motorOption('0', 0, 0);
 }
-
